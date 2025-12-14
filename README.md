@@ -385,6 +385,12 @@
             box-shadow: 0 3px 10px rgba(253, 121, 168, 0.3);
         }
         
+        .student.empty {
+            background: linear-gradient(135deg, #dfe6e9, #b2bec3);
+            color: #636e72;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
         .student:hover {
             transform: scale(1.05);
         }
@@ -809,11 +815,6 @@
             background: rgba(30, 41, 59, 0.5);
             color: var(--dark);
             border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        /* 个性化元素：班级标语（已移除样式） */
-        .class-motto {
-            display: none;
         }
         
         /* 新增个性化元素：进度条 */
@@ -1605,7 +1606,7 @@
                 <div class="output-container" id="output">
 Welcome to use the intelligent seat allocation system.
 Click the button above to start generating a random seating chart.
-This system ensures the randomness and fairness of seat allocation, with a 1.9% probability of each person being assigned.
+This system ensures the randomness and fairness of seat allocation.
                 </div>
             </div>
             
@@ -1693,28 +1694,28 @@ This system ensures the randomness and fairness of seat allocation, with a 1.9% 
                     <i class="fas fa-male"></i>
                 </div>
                 <h3 id="boyCountText">Boy Count</h3>
-                <div class="number" id="boyCount">31</div>
+                <div class="number">31</div>
             </div>
             <div class="stat-card stat-girl">
                 <div class="stat-icon">
                     <i class="fas fa-female"></i>
                 </div>
                 <h3 id="girlCountText">Girl Count</h3>
-                <div class="number" id="girlCount">22</div>
+                <div class="number">22</div>
             </div>
             <div class="stat-card stat-total">
                 <div class="stat-icon">
                     <i class="fas fa-users"></i>
                 </div>
                 <h3 id="totalCountText">All Count</h3>
-                <div class="number" id="totalCount">53</div>
+                <div class="number">53</div>
             </div>
             <div class="stat-card stat-seat">
                 <div class="stat-icon">
                     <i class="fas fa-chair"></i>
                 </div>
                 <h3 id="seatCountText">Seat Count</h3>
-                <div class="number" id="seatCount">27</div>
+                <div class="number">27</div>
             </div>
         </div>
         
@@ -1727,7 +1728,7 @@ This system ensures the randomness and fairness of seat allocation, with a 1.9% 
                     </p>
                 </div>
                 <div class="version">
-                    <i class="fas fa-star"></i> <span id="versionText">Version 3.16.7 | Last Update: 2025.10.1</span>
+                    <i class="fas fa-star"></i> <span id="versionText">Version 3.23.0 | Last Update: 2025.12.12</span>
                 </div>
             </div>
         </footer>
@@ -1740,26 +1741,9 @@ This system ensures the randomness and fairness of seat allocation, with a 1.9% 
     <script>
         // 用户账户数据
         const users = {
-            "public": "Lengendary Grandmaster",
-            "wrh316": "998244353%%%",
-            "Gao": "168168"
+            "public": "Class23seat",
+            "wrh316": "998244353%%%"
         };
-        
-        // 23班学生名单
-        const girls23 = [
-            "马辰熙", "邓思宇", "史晨语", "朱梓钰", "刘诗华", "杨子淇", "杨璟澜", 
-            "吴宇汐涵", "汪佩锦", "张蓝天", "武辰夕", "罗月瑶", "罗锡玥", 
-            "郑雅匀", "孟歆", "胡星羽", "黄梓欣", "戚米悠优", "翟鑫喆", 
-            "颜子璇", "魏语宸", "丁安可"
-        ];
-        
-        const boys23 = [
-            "马梓煜", "王泽翔", "王越", "王新升", "王瀚晨", "田云卿", "付家熠", 
-            "司竟成", "刘司博", "汤钧淇", "李宇辰", "李添睿", "杨子鑫", 
-            "杨萧冉", "杨骐宇", "杨睿辰", "束天成", "何欣彧", "余思恩", 
-            "张沐宸", "罗泽青", "周逸凡", "赵恩世", "胡昊然", "胡源清", 
-            "祝一鸣", "贺艺宁", "袁玮辰", "夏慕梓涵", "晏汀烁", "浦溯"
-        ];
         
         // 语言资源
         const resources = {
@@ -1820,10 +1804,10 @@ This system ensures the randomness and fairness of seat allocation, with a 1.9% 
                 // 页脚
                 footerText: "© 2025 Class 23's Seat Random Number Program | Author by @wrh316 | Website",
                 versionInfoText: "Website Versions，C++ Versions：https://note.ms/class23seat",
-                versionText: "Version 3.16.253 | Last Update: 2025.11.6",
+                versionText: "Version 3.23.0 | Last Update: 2025.12.12",
                 
                 // 初始输出文本
-                initialOutput: "Welcome to use the intelligent seat allocation system.\nClick the button above to start generating a random seating chart.\nThis system ensures the randomness and fairness of seat allocation, with a 1.9% probability of each person being assigned.",
+                initialOutput: "Welcome to use the intelligent seat allocation system.\nClick the button above to start generating a random seating chart.\nThis system ensures the randomness and fairness of seat allocation.",
                 
                 // 登录相关
                 loginTitle: "Class 23 Seat System",
@@ -1889,10 +1873,10 @@ This system ensures the randomness and fairness of seat allocation, with a 1.9% 
                 // 页脚
                 footerText: "© 2025 23班座位随机分配系统 | 作者：@wrh316 | 网站",
                 versionInfoText: "网页版本，C++版本：https://note.ms/class23seat",
-                versionText: "版本 3.16.253 | 最后更新：2025.11.6",
+                versionText: "版本 3.23.0 | 最后更新：2025.12.12",
                 
                 // 初始输出文本
-                initialOutput: "欢迎使用智能座位分配系统。\n点击上方按钮开始生成随机座位表。\n本系统确保座位分配的随机性和公平性，每个人被分配的概率为1.9%。",
+                initialOutput: "欢迎使用智能座位分配系统。\n点击上方按钮开始生成随机座位表。\n本系统确保座位分配的随机性和公平性。",
                 
                 // 登录相关
                 loginTitle: "23班座位系统",
@@ -1903,6 +1887,21 @@ This system ensures the randomness and fairness of seat allocation, with a 1.9% 
             }
         };
 
+        // 23班学生名单
+        const girls = [
+            "马辰熙", "邓思宇", "史晨语", "朱梓钰", "刘诗华", "杨子淇", "杨璟澜", 
+            "吴宇汐涵", "汪佩锦", "张蓝天", "武辰夕", "罗月瑶", "罗锡玥", "郑雅匀", 
+            "孟歆", "胡星羽", "黄梓欣", "戚米悠优", "翟鑫喆", "颜子璇", "魏语宸", "丁安可"
+        ];
+        
+        const boys = [
+            "马梓煜", "王泽翔", "王越", "王新升", "王瀚晨", "田云卿", "付家熠", 
+            "司竟成", "刘司博", "汤钧淇", "李宇辰", "李添睿", "杨子鑫", "杨萧冉", 
+            "杨骐宇", "杨睿辰", "束天成", "何欣彧", "余思恩", "张沐宸", "罗泽青", 
+            "周逸凡", "赵恩世", "胡昊然", "胡源清", "祝一鸣", "贺艺宁", "袁玮辰", 
+            "夏慕梓涵", "晏汀烁", "浦溯"
+        ];
+        
         // 全局变量
         let currentSeating = null;
         let history = JSON.parse(localStorage.getItem('seatHistory')) || [];
@@ -1930,22 +1929,12 @@ This system ensures the randomness and fairness of seat allocation, with a 1.9% 
             // 设置语言
             setLanguage(currentLanguage);
             
-            // 更新统计数字
-            updateStats();
-            
             // 更新时钟
             updateClock();
             setInterval(updateClock, 1000);
             
             // 创建粒子背景
             createParticles();
-        }
-        
-        // 更新统计数字
-        function updateStats() {
-            document.getElementById('boyCount').textContent = boys23.length;
-            document.getElementById('girlCount').textContent = girls23.length;
-            document.getElementById('totalCount').textContent = boys23.length + girls23.length;
         }
         
         // 显示登录界面
@@ -2128,7 +2117,7 @@ This system ensures the randomness and fairness of seat allocation, with a 1.9% 
         
         // 判断学生是否为男生
         function isBoy(name) {
-            return boys23.includes(name);
+            return boys.includes(name);
         }
         
         // 更新时钟显示
@@ -2157,11 +2146,13 @@ This system ensures the randomness and fairness of seat allocation, with a 1.9% 
             desk.appendChild(deskNumberElem);
             
             const student1Elem = document.createElement('div');
-            student1Elem.className = `student ${isBoy(student1) ? 'boy' : 'girl'}`;
+            const student1Class = student1 === "空" ? "empty" : (isBoy(student1) ? 'boy' : 'girl');
+            student1Elem.className = `student ${student1Class}`;
             student1Elem.textContent = student1;
             
             const student2Elem = document.createElement('div');
-            student2Elem.className = `student ${isBoy(student2) ? 'boy' : 'girl'}`;
+            const student2Class = student2 === "空" ? "empty" : (isBoy(student2) ? 'boy' : 'girl');
+            student2Elem.className = `student ${student2Class}`;
             student2Elem.textContent = student2;
             
             desk.appendChild(student1Elem);
@@ -2198,8 +2189,8 @@ This system ensures the randomness and fairness of seat allocation, with a 1.9% 
             setTimeout(async () => {
                 let outputText = '';
                 
-                // 合并所有学生并进行随机排序（允许同性/异性同桌）
-                let allStudents = [...boys23, ...girls23];
+                // 创建学生数组
+                let allStudents = [...boys, ...girls];
                 
                 // 使用安全的随机算法打乱数组
                 allStudents = await shuffleArraySecure(allStudents);
@@ -2213,48 +2204,51 @@ This system ensures the randomness and fairness of seat allocation, with a 1.9% 
                     timestamp: new Date().toISOString()
                 };
                 
-                // 生成座位表 - 27个座位，每个座位2名学生
-                let deskCounter = 1;
+                // 计算需要的座位数
+                const totalStudents = allStudents.length;
+                const seatsNeeded = Math.ceil(totalStudents / 2);
+                
+                // 创建座位数组
                 let seats = [];
                 
                 // 创建座位对
-                for (let i = 0; i < allStudents.length; i += 2) {
-                    if (i + 1 < allStudents.length) {
-                        seats.push({
-                            student1: allStudents[i],
-                            student2: allStudents[i + 1]
-                        });
-                    }
+                for (let i = 0; i < seatsNeeded; i++) {
+                    const index1 = i * 2;
+                    const index2 = i * 2 + 1;
+                    
+                    const student1 = index1 < totalStudents ? allStudents[index1] : "空";
+                    const student2 = index2 < totalStudents ? allStudents[index2] : "空";
+                    
+                    seats.push({
+                        student1: student1,
+                        student2: student2
+                    });
                 }
                 
-                // 随机打乱座位顺序
-                seats = await shuffleArraySecure(seats);
-                
-                // 将座位分成7行，每行4个座位（最后一行3个）
-                for (let row = 0; row < 7; row++) {
-                    const rowElement = document.createElement('div');
-                    rowElement.className = 'row';
+                // 将座位分成7行，每行4个座位
+                let deskCounter = 1;
+                for (let i = 0; i < 7; i++) {
+                    const row = document.createElement('div');
+                    row.className = 'row';
                     let line = '| ';
                     
-                    const seatsPerRow = row === 6 ? 3 : 4; // 最后一行3个座位
-                    
-                    for (let col = 0; col < seatsPerRow; col++) {
-                        const seatIndex = row * 4 + col;
+                    for (let j = 0; j < 4; j++) {
+                        const seatIndex = i * 4 + j;
                         if (seatIndex < seats.length) {
                             const seat = seats[seatIndex];
-                            line += setw(seat.student1, 4) + ' ' + setw(seat.student2, 4) + ' | ';
+                            line += setw(seat.student1, 6) + ' ' + setw(seat.student2, 6) + ' | ';
                             
                             const desk = createDesk(
                                 seat.student1, 
                                 seat.student2,
                                 deskCounter++
                             );
-                            rowElement.appendChild(desk);
+                            row.appendChild(desk);
                         }
                     }
                     
                     outputText += line + '\n';
-                    seatingPlan.appendChild(rowElement);
+                    seatingPlan.appendChild(row);
                 }
                 
                 // 设置输出
@@ -2413,7 +2407,7 @@ This system ensures the randomness and fairness of seat allocation, with a 1.9% 
             }
             
             // 在所有学生中搜索
-            const allStudents = [...boys23, ...girls23];
+            const allStudents = [...boys, ...girls];
             const foundStudents = allStudents.filter(student => 
                 student.includes(searchTerm)
             );
